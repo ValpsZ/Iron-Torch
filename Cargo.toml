@@ -2,6 +2,7 @@
 name = "iron_torch"
 version = "0.1.0"
 edition = "2021"
+authors = ["Emil Lindgren"]
 
 [lib]
 name = "iron_torch"
