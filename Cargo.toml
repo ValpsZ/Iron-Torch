@@ -1,0 +1,12 @@
+[package]
+name = "iron_torch"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "iron_torch"
+path = "src/lib.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+rand = "0.8.4"
