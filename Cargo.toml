@@ -1,8 +1,13 @@
 [package]
 name = "iron_torch"
 version = "0.1.0"
-edition = "2021"
 authors = ["Emil Lindgren"]
+license = "MIT"
+description = "A very basic neuralnet set up and user will keep updated for abit"
+homepage = "https://github.com/ValpsZ/Iron-Thorch"
+repository = "https://github.com/ValpsZ/Iron-Thorch"
+readme = "README.md"
+
 
 [lib]
 name = "iron_torch"
