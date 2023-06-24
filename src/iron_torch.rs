@@ -1,47 +1,35 @@
-use rand::Rng;
+use rand::prelude::*;
 
-pub struct Neuron {
-    weight: f32,
-    bias: f32,
-}
 
-impl Neuron {
-    pub fn new() -> Neuron {
-        let weight: f32 = rand::thread_rng().gen();
-        let bias: f32 = rand::thread_rng().gen();
-        return Neuron { weight, bias }
-    }
-
-    pub fn calc(&self, input: &Vec<f32>) -> f32 {
-        let mut sum: f32 = 0.0;
-        for value in input {
-            sum += value * self.weight
-        }
-        let output: f32 = f32::tanh(sum) + self.bias;
-        return output;
-    }
+fn calc(a: &Vec<f32>, b: &Vec<f32>, c: &Vec<f32>) -> Vec<f32> {
+    a.iter()
+        .zip(b.iter())
+        .zip(c.iter())
+        .map(|((&x, &y), &z)| x.mul_add(y, z).tanh())
+        .collect()
 }
 
 pub struct Layer {
-    neurons: Vec<Neuron>,
+    weights: Vec<f32>,
+    biases: Vec<f32>,
 }
 
 impl Layer {
     pub fn new(size: usize) -> Layer {
-        let mut neurons: Vec<Neuron> = Vec::with_capacity(size);
-        
-        for _ in 0..size {
-            neurons.push(Neuron::new());
-        }
+        let weights: Vec<f32> = (0..size)
+            .map(|_| rand::thread_rng().gen::<f32>())
+            .collect();
 
-        return Layer { neurons };
+        let biases: Vec<f32> = (0..size)
+            .map(|_| rand::thread_rng().gen::<f32>())
+            .collect();
+
+        return Layer { weights, biases };
     }
 
     pub fn calc(&self, input: Vec<f32>) -> Vec<f32>{
-        let mut output: Vec<f32> = Vec::with_capacity(self.neurons.len());
-        for neuron in &self.neurons {
-            output.push(neuron.calc(&input))
-        }
+        let output: Vec<f32> = calc(&self.weights, &input, &self.biases);
+
         return output;
     }
 }
