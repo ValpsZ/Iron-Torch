@@ -1,3 +1,4 @@
-pub mod iron_torch;
-pub mod matrix;
-pub mod activation;
+mod iron_torch;
+
+use iron_torch::matrix;
+use iron_torch::activation;

@@ -1,5 +1,5 @@
-mod matrix;
-mod activation;
+pub mod matrix;
+pub mod activation;
 
 pub struct Layer<'a> {
     weights: matrix::Matrix,
