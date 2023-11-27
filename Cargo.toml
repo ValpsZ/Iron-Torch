@@ -5,8 +5,8 @@ edition = "2021"
 authors = ["Emil Lindgren"]
 license = "MIT"
 description = "A very basic neuralnet set up and user will keep updated for abit"
-homepage = "https://github.com/ValpsZ/Iron-Thorch"
-repository = "https://github.com/ValpsZ/Iron-Thorch"
+homepage = "https://github.com/ValpsZ/Iron-Torch"
+repository = "https://github.com/ValpsZ/Iron-Torch"
 readme = "README.md"
 
 
